@@ -27,35 +27,38 @@ h1 {
     letter-spacing: 1px;
 }
 
-#cinema_name {
-    color: #aaaaaa; /* 少し暗めのグレーでサブタイトルっぽく */
-    font-size: 14px;
-    margin-top: 0;
+/* 映画館の名前の見出し（新しく追加） */
+.cinema-title {
+    color: #aaaaaa;
+    font-size: 18px;
+    margin-top: 40px;
+    margin-bottom: 15px;
+    border-bottom: 1px solid #333; /* 下に線を引いて区切る */
+    padding-bottom: 5px;
 }
 
-/* 映画リストの枠組み（箇条書きの点を消す） */
-#movie_list {
+/* 映画リストの枠組み（IDからClassに変更） */
+.movie-list {
     list-style-type: none; 
     padding: 0;
     margin: 0;
 }
 
 /* 映画タイトル（1つ1つのカード）のデザイン */
-#movie_list li {
-    background-color: #1e1e1e; /* 背景より少し明るい黒 */
+.movie-list li {
+    background-color: #1e1e1e;
     margin-bottom: 12px;
     padding: 16px 20px;
-    border-radius: 10px; /* 角を丸くする */
-    box-shadow: 0 4px 6px rgba(0,0,0,0.3); /* 薄い影をつけて立体感を出す */
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.3);
     font-size: 16px;
     font-weight: bold;
-    border-left: 5px solid #e50914; /* 映画館を意識した赤いアクセントライン */
-    transition: transform 0.2s, background-color 0.2s; /* アニメーションの準備 */
+    border-left: 5px solid #e50914;
+    transition: transform 0.2s, background-color 0.2s;
     cursor: pointer;
 }
 
-/* マウスを乗せた時（ホバー）のフワッと浮き上がるギミック */
-#movie_list li:hover {
-    transform: translateY(-3px); /* 3ピクセル上に移動 */
-    background-color: #2a2a2a;   /* 色を少し明るく */
+.movie-list li:hover {
+    transform: translateY(-3px);
+    background-color: #2a2a2a;
 }
