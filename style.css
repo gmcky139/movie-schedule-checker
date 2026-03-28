@@ -28,7 +28,7 @@ h1 {
 }
 
 /* 映画館の名前の見出し（新しく追加） */
-.cinema-title {
+.cinema_title {
     color: #aaaaaa;
     font-size: 18px;
     margin-top: 40px;
@@ -38,27 +38,48 @@ h1 {
 }
 
 /* 映画リストの枠組み（IDからClassに変更） */
-.movie-list {
-    list-style-type: none; 
+/* 映画リストを「3列の網目（グリッド）」にする魔法 */
+.movie-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 1fr(均等な幅)を3つ並べる = 3列 */
+    gap: 15px; /* カードとカードの隙間 */
     padding: 0;
     margin: 0;
+    list-style: none;
 }
 
-/* 映画タイトル（1つ1つのカード）のデザイン */
-.movie-list li {
+/* 映画1つ1つのカードデザイン */
+.movie-card {
     background-color: #1e1e1e;
-    margin-bottom: 12px;
-    padding: 16px 20px;
     border-radius: 10px;
+    overflow: hidden; /* 画像の角を丸く切り取るため */
     box-shadow: 0 4px 6px rgba(0,0,0,0.3);
-    font-size: 16px;
-    font-weight: bold;
-    border-left: 5px solid #e50914;
-    transition: transform 0.2s, background-color 0.2s;
+    transition: transform 0.2s;
     cursor: pointer;
+    display: flex;
+    flex-direction: column; /* 画像を下、タイトルをその下に縦並び */
 }
 
-.movie-list li:hover {
-    transform: translateY(-3px);
+.movie-card:hover {
+    transform: translateY(-5px);
     background-color: #2a2a2a;
+}
+
+/* ポスター画像の設定 */
+.movie-card img {
+    width: 100%; /* カードの幅いっぱいに広げる */
+    aspect-ratio: 2 / 3; /* 映画ポスターの黄金比（縦長）に固定 */
+    object-fit: cover; /* 画像が歪まないように綺麗に切り抜く */
+    display: block;
+    background-color: #333; /* 画像読み込み中の背景色 */
+}
+
+/* タイトルの設定 */
+.movie-card .title {
+    font-size: 13px; /* 3列だと狭いので文字は少し小さめに */
+    font-weight: bold;
+    padding: 10px 8px;
+    margin: 0;
+    text-align: center;
+    line-height: 1.3;
 }
